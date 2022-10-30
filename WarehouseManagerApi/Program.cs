@@ -1,5 +1,6 @@
 using Microsoft.OpenApi.Models;
 using WarehouseManagerApi.Infrastructure.Extensions;
+using WarehouseManagerApi.Middleware;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -43,5 +44,6 @@ app.UseCors(x => x.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
 app.UseHttpsRedirection();
 app.UseAuthorization();
 app.MapControllers();
+app.UseMiddleware<ErrorHandlerMiddleware>();
 
 app.Run();

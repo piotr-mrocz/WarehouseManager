@@ -12,10 +12,10 @@
 
   <ItemGroup>
     <Folder Include="Controllers\" />
-    <Folder Include="Middleware\" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\WarehouseManagerApi.Domain\WarehouseManagerApi.Domain.csproj" />
     <ProjectReference Include="..\WarehouseManagerApi.Infrastructure\WarehouseManagerApi.Infrastructure.csproj" />
   </ItemGroup>
 
