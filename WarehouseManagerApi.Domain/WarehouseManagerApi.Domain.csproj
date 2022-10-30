@@ -13,4 +13,8 @@
     <Folder Include="Consts\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="FluentValidation" Version="11.2.2" />
+  </ItemGroup>
+
 </Project>

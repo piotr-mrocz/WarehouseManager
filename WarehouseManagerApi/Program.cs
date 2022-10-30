@@ -1,4 +1,5 @@
 using Microsoft.OpenApi.Models;
+using WarehouseManagerApi.Application.Extensions;
 using WarehouseManagerApi.Infrastructure.Extensions;
 using WarehouseManagerApi.Middleware;
 
@@ -15,6 +16,7 @@ builder.Services.AddSwaggerGen(c => c.SwaggerDoc("v1", new OpenApiInfo { Title =
 #region Add layers
 
 builder.Services.AddInfrastructureLayer(builder.Configuration);
+builder.Services.AddApplicationLayer();
 
 #endregion Add layers
 

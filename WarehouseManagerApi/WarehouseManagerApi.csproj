@@ -15,6 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\WarehouseManagerApi.Application\WarehouseManagerApi.Application.csproj" />
     <ProjectReference Include="..\WarehouseManagerApi.Domain\WarehouseManagerApi.Domain.csproj" />
     <ProjectReference Include="..\WarehouseManagerApi.Infrastructure\WarehouseManagerApi.Infrastructure.csproj" />
   </ItemGroup>
