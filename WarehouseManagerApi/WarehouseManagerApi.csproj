@@ -15,4 +15,8 @@
     <Folder Include="Middleware\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\WarehouseManagerApi.Infrastructure\WarehouseManagerApi.Infrastructure.csproj" />
+  </ItemGroup>
+
 </Project>
