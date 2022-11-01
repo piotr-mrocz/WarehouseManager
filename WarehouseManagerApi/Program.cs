@@ -12,7 +12,6 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c => c.SwaggerDoc("v1", new OpenApiInfo { Title = "WarehouseManager API", Version = "v1" }));
 
-
 #region Add layers
 
 builder.Services.AddInfrastructureLayer(builder.Configuration);

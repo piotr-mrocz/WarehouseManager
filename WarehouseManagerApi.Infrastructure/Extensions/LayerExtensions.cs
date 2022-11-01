@@ -15,5 +15,7 @@ public static class LayerExtensions
     public static void AddInfrastructureLayer(this IServiceCollection services, IConfiguration configuration)
     {
         services.AddDbContext<WarehouseManagerDbContext>(x => x.UseSqlServer(configuration.GetConnectionString(nameof(ConnectionString.WarehouseManager))));
+        services.AddScoped<IWarehouseManagerDbContext, WarehouseManagerDbContext>();
     }
 }
+ 
