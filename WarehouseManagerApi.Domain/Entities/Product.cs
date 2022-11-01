@@ -12,4 +12,6 @@ public class Product
     public string FullName { get; set; } = null!;
     public uint QuantityOnFullPallet { get; set; }
     public uint QuantityAvailable { get; set; }
+
+    public ICollection<WarehouseMovement> WarehouseMovements { get; set; } = new List<WarehouseMovement>();
 }

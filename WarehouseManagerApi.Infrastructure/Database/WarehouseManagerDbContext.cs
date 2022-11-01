@@ -16,6 +16,7 @@ public class WarehouseManagerDbContext : DbContext, IWarehouseManagerDbContext
     public DbSet<User> Users { get; set; } = null!;
     public DbSet<Role> Roles { get; set; } = null!;
     public DbSet<Product> Products { get; set; } = null!;
+    public DbSet<WarehouseMovement> WarehouseMovements { get; set; } = null!;
 
     #endregion DbSet
 
@@ -26,6 +27,13 @@ public class WarehouseManagerDbContext : DbContext, IWarehouseManagerDbContext
             user.HasOne(u => u.Role)
            .WithMany(r => r.Users)
            .HasForeignKey(x => x.IdRole);
+        });
+
+        builder.Entity<WarehouseMovement>(movement =>
+        {
+            movement.HasOne(m => m.Product)
+            .WithMany(p => p.WarehouseMovements)
+            .HasForeignKey(x => x.IdProduct);
         });
 
         base.OnModelCreating(builder);
