@@ -12,6 +12,7 @@ public class WarehouseMovement
     public int MovementType { get; set; }
     public string? ExtraInfo { get; set; } = null;
     public uint Quantity { get; set; }
+    public decimal Weight { get; set; }
 
     public Product Product { get; set; } = null!;
 }
