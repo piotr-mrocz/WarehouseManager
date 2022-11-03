@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WarehouseManagerApi.Infrastructure.Database;
 
@@ -11,9 +12,10 @@ using WarehouseManagerApi.Infrastructure.Database;
 namespace WarehouseManagerApi.Infrastructure.Migrations
 {
     [DbContext(typeof(WarehouseManagerDbContext))]
-    partial class WarehouseManagerDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221103182229_AddWarehouseAddressesProductsTable")]
+    partial class AddWarehouseAddressesProductsTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

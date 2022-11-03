@@ -13,4 +13,8 @@ public class WarehouseAddress
     public int MaxNumberOfPallets { get; set; }
     public bool IsFull { get; set; }
     public bool IsActive { get; set; }
+
+    public ICollection<WarehouseAddressesProduct> WarehouseAddressesProducts { get; set; } = new List<WarehouseAddressesProduct>();
+    public virtual ICollection<WarehouseMovement>? FromWarehouseMovements { get; set; }
+    public virtual ICollection<WarehouseMovement>? ToWarehouseMovements { get; set; }
 }

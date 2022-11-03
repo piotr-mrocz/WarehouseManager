@@ -13,6 +13,10 @@ public class WarehouseMovement
     public string? ExtraInfo { get; set; } = null;
     public uint Quantity { get; set; }
     public decimal Weight { get; set; }
+    public int? FromWarehouseAddressId { get; set; }
+    public int? ToWarehouseAddressId { get; set; }
 
     public Product Product { get; set; } = null!;
+    public virtual WarehouseAddress? FromWarehouseAddress { get; set; } 
+    public virtual WarehouseAddress? ToWarehouseAddress { get; set; } 
 }

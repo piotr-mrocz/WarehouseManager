@@ -18,6 +18,7 @@ public class WarehouseManagerDbContext : DbContext, IWarehouseManagerDbContext
     public DbSet<Product> Products { get; set; } = null!;
     public DbSet<WarehouseMovement> WarehouseMovements { get; set; } = null!;
     public DbSet<WarehouseAddress> WarehouseAddresses { get; set; } = null!;
+    public DbSet<WarehouseAddressesProduct> WarehouseAddressesProducts { get; set; } = null!;
 
     #endregion DbSet
 
@@ -35,6 +36,25 @@ public class WarehouseManagerDbContext : DbContext, IWarehouseManagerDbContext
             movement.HasOne(m => m.Product)
             .WithMany(p => p.WarehouseMovements)
             .HasForeignKey(x => x.IdProduct);
+
+            movement.HasOne(m => m.FromWarehouseAddress)
+            .WithMany(w => w.FromWarehouseMovements)
+            .HasForeignKey(x => x.FromWarehouseAddressId);
+
+            movement.HasOne(m => m.ToWarehouseAddress)
+            .WithMany(w => w.ToWarehouseMovements)
+            .HasForeignKey(x => x.ToWarehouseAddressId);
+        });
+
+        builder.Entity<WarehouseAddressesProduct>(product =>
+        {
+            product.HasOne(p => p.Product)
+            .WithMany(p => p.WarehouseAddressesProducts)
+            .HasForeignKey(x => x.IdProduct);
+
+            product.HasOne(p => p.WarehouseAddress)
+            .WithMany(w => w.WarehouseAddressesProducts)
+            .HasForeignKey(x => x.IdWarehouseAddress);
         });
 
         base.OnModelCreating(builder);
