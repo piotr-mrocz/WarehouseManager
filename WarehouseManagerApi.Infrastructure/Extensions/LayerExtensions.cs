@@ -14,8 +14,20 @@ public static class LayerExtensions
 {
     public static void AddInfrastructureLayer(this IServiceCollection services, IConfiguration configuration)
     {
-        services.AddDbContext<WarehouseManagerDbContext>(x => x.UseSqlServer(configuration.GetConnectionString(nameof(ConnectionString.WarehouseManager))));
+        services.AddDbContext<WarehouseManagerDbContext>(x => 
+                x.UseSqlServer(configuration.GetConnectionString(nameof(ConnectionString.WarehouseManager))));
         services.AddScoped<IWarehouseManagerDbContext, WarehouseManagerDbContext>();
+        services.AddScoped<DatabaseSeeder>();
+    }
+
+    public static void SeedDatabase(this IServiceScope scope)
+    {
+        var databaseSeeder = scope.ServiceProvider.GetService<DatabaseSeeder>();
+
+        if (databaseSeeder is not null)
+        {
+            databaseSeeder.Seed();
+        }
     }
 }
  

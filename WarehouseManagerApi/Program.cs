@@ -41,6 +41,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+WarehouseManagerApi.Infrastructure.Extensions.LayerExtensions.SeedDatabase(app.Services.CreateScope());
 app.UseCors(x => x.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
 app.UseHttpsRedirection();
 app.UseAuthorization();
