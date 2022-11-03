@@ -23,6 +23,9 @@ public class DatabaseSeeder
 
         if (!_dbContext.Products.Any())
             GenerateSomeProducts();
+
+        if (!_dbContext.WarehouseAddresses.Any())
+            GenerateWarehouseAddresses();
     }
 
     private void GenerateSomeProducts()
@@ -79,6 +82,69 @@ public class DatabaseSeeder
         };
 
         _dbContext.Products.AddRange(products);
+        _dbContext.SaveChanges();
+    }
+
+    private void GenerateWarehouseAddresses()
+    {
+        var addresses = new List<WarehouseAddress>()
+        {
+            new WarehouseAddress()
+            {
+                Address = "Address 1",
+                MaxLoad = 250m,
+                MaxNumberOfPallets = 5,
+                IsFull = false,
+                IsActive = true
+            },
+
+            new WarehouseAddress()
+            {
+                Address = "Address 2",
+                MaxLoad = 200m,
+                MaxNumberOfPallets = 2,
+                IsFull = false,
+                IsActive = true
+            },
+
+            new WarehouseAddress()
+            {
+                Address = "Address 3",
+                MaxLoad = 250m,
+                MaxNumberOfPallets = 3,
+                IsFull = false,
+                IsActive = true
+            },
+
+            new WarehouseAddress()
+            {
+                Address = "Address 4",
+                MaxLoad = 250m,
+                MaxNumberOfPallets = 5,
+                IsFull = false,
+                IsActive = false
+            },
+
+            new WarehouseAddress()
+            {
+                Address = "Address 5",
+                MaxLoad = 250m,
+                MaxNumberOfPallets = 3,
+                IsFull = false,
+                IsActive = true
+            },
+
+            new WarehouseAddress()
+            {
+                Address = "Address 6",
+                MaxLoad = 200m,
+                MaxNumberOfPallets = 2,
+                IsFull = false,
+                IsActive = true
+            }
+        };
+
+        _dbContext.WarehouseAddresses.AddRange(addresses);
         _dbContext.SaveChanges();
     }
 }
