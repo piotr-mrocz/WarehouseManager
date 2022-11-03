@@ -17,6 +17,7 @@ public class WarehouseManagerDbContext : DbContext, IWarehouseManagerDbContext
     public DbSet<Role> Roles { get; set; } = null!;
     public DbSet<Product> Products { get; set; } = null!;
     public DbSet<WarehouseMovement> WarehouseMovements { get; set; } = null!;
+    public DbSet<WarehouseAddress> WarehouseAddresses { get; set; } = null!;
 
     #endregion DbSet
 
