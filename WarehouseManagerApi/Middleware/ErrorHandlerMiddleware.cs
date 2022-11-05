@@ -35,11 +35,16 @@ public class ErrorHandlerMiddleware
 
         switch (error)
         {
-            case ApiException e:
+            case ApiException:
                 // custom application error
                 response.StatusCode = (int)HttpStatusCode.BadRequest;
                 break;
-            case KeyNotFoundException e:
+            case ValidationException ex:
+                // custom application error
+                response.StatusCode = (int)HttpStatusCode.BadRequest;
+                responseModel.Errors = ex.Errors;
+                break;
+            case KeyNotFoundException:
                 // not found error
                 response.StatusCode = (int)HttpStatusCode.NotFound;
                 break;
