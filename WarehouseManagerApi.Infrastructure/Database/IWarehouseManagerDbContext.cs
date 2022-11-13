@@ -16,4 +16,6 @@ public interface IWarehouseManagerDbContext
     public DbSet<WarehouseMovement> WarehouseMovements { get; set; }
     public DbSet<WarehouseAddress> WarehouseAddresses { get; set; }
     public DbSet<WarehouseAddressesProduct> WarehouseAddressesProducts { get; set; }
+
+    Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
 }

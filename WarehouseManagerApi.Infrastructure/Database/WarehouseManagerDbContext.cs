@@ -22,6 +22,9 @@ public class WarehouseManagerDbContext : DbContext, IWarehouseManagerDbContext
 
     #endregion DbSet
 
+    public async override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
+        => await base.SaveChangesAsync(cancellationToken);
+
     protected override void OnModelCreating(ModelBuilder builder)
     {
         builder.Entity<User>(user =>
