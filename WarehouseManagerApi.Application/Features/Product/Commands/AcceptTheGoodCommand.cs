@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using WarehouseManagerApi.Domain.Consts;
 using WarehouseManagerApi.Domain.Dtos;
 using WarehouseManagerApi.Domain.Entities;
+using WarehouseManagerApi.Domain.Enums;
 using WarehouseManagerApi.Domain.Responses;
 using WarehouseManagerApi.Infrastructure.Database;
 
@@ -96,7 +97,8 @@ public class AcceptTheGoodHandler : IRequestHandler<AcceptTheGoodCommand, Respon
             Quantity = request.AcceptTheGoodDto.Quantity,
             Weight = request.AcceptTheGoodDto.Weight,
             ExtraInfo = request.AcceptTheGoodDto.ExtraInfo,
-            ToWarehouseAddressId = idWarehouseAddress
+            ToWarehouseAddressId = idWarehouseAddress,
+            MovementType = (int)WarehouseMovementsEnum.AcceptTheGood
         };
 
         await _dbContxet.WarehouseMovements.AddAsync(newWarehouseMovement);
