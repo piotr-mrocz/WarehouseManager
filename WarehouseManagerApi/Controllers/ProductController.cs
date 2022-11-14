@@ -18,4 +18,8 @@ public class ProductController : ControllerBase
     [HttpPost]
     public async Task<IActionResult> AcceptTheGood(AcceptTheGoodCommand request)
         => Ok(await _mediator.Send(request));
+
+    [HttpPost]
+    public async Task<IActionResult> OrderTheTransfer(OrderTheTransferCommand request)
+         => Ok(await _mediator.Send(request));
 }

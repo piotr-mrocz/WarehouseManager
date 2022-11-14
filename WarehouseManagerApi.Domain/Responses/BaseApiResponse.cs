@@ -24,4 +24,9 @@ public class BaseApiResponse
         Success = success;
         Message = message;
     }
+
+    public BaseApiResponse(bool success)
+    {
+        Success = success;
+    }
 }
