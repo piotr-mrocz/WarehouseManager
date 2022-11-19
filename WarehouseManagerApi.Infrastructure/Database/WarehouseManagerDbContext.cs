@@ -9,7 +9,10 @@ using WarehouseManagerApi.Domain.Entities;
 namespace WarehouseManagerApi.Infrastructure.Database;
 public class WarehouseManagerDbContext : DbContext, IWarehouseManagerDbContext
 {
-    public WarehouseManagerDbContext(DbContextOptions<WarehouseManagerDbContext> options) : base(options) { }
+    public WarehouseManagerDbContext(DbContextOptions<WarehouseManagerDbContext> options) : base(options) 
+    {
+        base.Database.EnsureCreatedAsync();
+    }
 
     #region DbSet
 
